@@ -41,3 +41,13 @@ export const deleteTodo = asyncHandler(async (req, res, next) => {
     }
     messageResponse(res, 200, "Todo deleted successfully")
 })
+
+// Get all to do for specific user.
+export const getAllTodos = asyncHandler(async (req, res, next) => {
+    const { userId } = req.params
+    const todos = await Todo.find({ userId })
+    if(!todos.length > 0){
+        return messageResponse(res, 200, "There is no to do for this user")
+    }
+    dataResponse(res, 200, todos)
+})
