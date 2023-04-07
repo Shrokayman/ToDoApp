@@ -34,13 +34,13 @@ app.use(morgan("dev"));
 
 // ? import the routes
 import { todoRouter } from "./routes/todo.routes.js";
-// import { userRouter } from "./routes/user.routes.js";
+import { userRouter } from "./routes/user.routes.js";
 
 
 
 // ? mount routes
 app.use("/api/todos", todoRouter)
-// app.use("/api/users", userRouter);
+app.use("/api/users", userRouter);
 
 
 
@@ -48,7 +48,7 @@ app.use("/api/todos", todoRouter)
 app.use(errorHandler);
 
 // ? Make the server listen on the port
-const PORT = process.env.PORT || 6666
+const PORT = process.env.PORT || 9999
 app.listen(PORT, () => {
     console.log(`the app is listening  on port ${PORT}`.white.bold);
 });

@@ -6,7 +6,7 @@ import { User } from "../models/User.js";
 // Protect routes
 const userAuth = asyncHandler(async (req, res, next) => {
   if (!req.header("Authorization")) {
-    return next(new ErrorResponse(req.t('login_make_sure_error'), 401));
+    return next(new ErrorResponse("Please authenticate", 401));
 
   }
   const token = req.header("Authorization").replace("Bearer ", "");
@@ -18,7 +18,7 @@ const userAuth = asyncHandler(async (req, res, next) => {
 
 
   if (!user) {
-    return next(new ErrorResponse(req.t('invalid_credentials_error'), 401));
+    return next(new ErrorResponse("Invalid credentials", 401));
   }
 
 

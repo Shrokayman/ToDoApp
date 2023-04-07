@@ -14,7 +14,7 @@ const todoRouter = express.Router()
 todoRouter.post("/", addTodo)
 
 // Get to do information for specific user.
-todoRouter.get("/", getTodo)
+todoRouter.get("/", userAuth, getTodo)
 
 // Update an existing to do for specific user.
 todoRouter.put("/", updateTodo)
@@ -23,6 +23,6 @@ todoRouter.put("/", updateTodo)
 todoRouter.delete("/", deleteTodo)
 
 // Get all to do for specific user.
-todoRouter.get("/:userId", getAllTodos)
+todoRouter.get("/:userId", userAuth, getAllTodos)
 
 export { todoRouter };
