@@ -32,12 +32,14 @@ app.use(morgan("dev"));
 
 
 
-// // ? import the routes
+// ? import the routes
+import { todoRouter } from "./routes/todo.routes.js";
 // import { userRouter } from "./routes/user.routes.js";
 
 
 
-// // ? mount routes
+// ? mount routes
+app.use("/api/todos", todoRouter)
 // app.use("/api/users", userRouter);
 
 
